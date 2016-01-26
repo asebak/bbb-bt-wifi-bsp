@@ -24,12 +24,14 @@ PRODUCT_COPY_FILES := \
 	device/ti/beagleboneblack/media_codecs.xml:system/etc/media_codecs.xml \
 	device/ti/beagleboneblack/media_profiles.xml:system/etc/media_profiles.xml \
 	device/ti/beagleboneblack/mixer_paths.xml:system/etc/mixer_paths.xml \
-	device/ti/beagleboneblack/audio_policy.conf:system/etc/audio_policy.conf
+	device/ti/beagleboneblack/audio_policy.conf:system/etc/audio_policy.conf 
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
-	frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml
+	frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
+        $(LOCAL_PATH)/bt.settings.conf:/system/etc/bluetooth/main.conf  \
+        $(LOCAL_PATH)/bt.settings.conf:/data/misc/bluetooth/settings 
 
 # Wifi
 PRODUCT_COPY_FILES += \
@@ -58,13 +60,14 @@ PRODUCT_PROPERTY_OVERRIDES := \
        hwui.render_dirty_regions=false
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/main.nonsmartphone.conf:system/etc/bluetooth/main.conf  
+
 	   
 # Explicitly specify dpi, otherwise the icons don't show up correctly with SGX enabled
 PRODUCT_PROPERTY_OVERRIDES += \
        wifi.interface=wlan0 \
        wlan.driver.status=ok \
-       ro.sf.lcd_density=160
+       ro.sf.lcd_density=160 \
+       persist.sys.bluetooth.debug 1
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.strictmode.visual=0 \
