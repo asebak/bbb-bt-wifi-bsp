@@ -29,9 +29,9 @@ PRODUCT_COPY_FILES := \
 # Bluetooth
 PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
-	frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
-        $(LOCAL_PATH)/bt.settings.conf:/system/etc/bluetooth/main.conf  \
-        $(LOCAL_PATH)/bt.settings.conf:/data/misc/bluetooth/settings 
+	frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml 
+#        $(LOCAL_PATH)/bt.settings.conf:/system/etc/bluetooth/main.conf  \
+#        $(LOCAL_PATH)/bt.settings.conf:/data/misc/bluetooth/settings 
 
 # Wifi
 PRODUCT_COPY_FILES += \
@@ -103,6 +103,11 @@ PRODUCT_PACKAGES += \
 # Backlight HAL (liblights)
 PRODUCT_PACKAGES += \
 	lights.beagleboneblack
+
+
+#Preinstalled apps
+PRODUCT_PACKAGES += \
+	SensorTag
 
 PRODUCT_PACKAGES += \
 	FileManager-1.1.6

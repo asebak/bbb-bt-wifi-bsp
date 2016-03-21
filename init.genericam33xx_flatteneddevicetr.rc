@@ -74,27 +74,42 @@ on post-fs-data
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
 
 # Load kernel modules
-    # Bluetooth
-    insmod /system/vendor/lib/modules/3.8.13/updates/compat/compat.ko
-    insmod /system/vendor/lib/modules/3.8.13/updates/net/bluetooth/bluetooth.ko
-    insmod /system/vendor/lib/modules/3.8.13/updates/net/bluetooth/rfcomm/rfcomm.ko
-    insmod /system/vendor/lib/modules/3.8.13/updates/net/bluetooth/bnep/bnep.ko
-    insmod /system/vendor/lib/modules/3.8.13/updates/drivers/bluetooth/btusb.ko
+   # Bluetooth
+    insmod /system/vendor/lib/modules/3.8.13+/updates/compat/compat.ko
+    insmod /system/vendor/lib/modules/3.8.13+/updates/net/bluetooth/bluetooth.ko
+    insmod /system/vendor/lib/modules/3.8.13+/updates/net/bluetooth/rfcomm/rfcomm.ko
+    insmod /system/vendor/lib/modules/3.8.13+/updates/net/bluetooth/bnep/bnep.ko
+    insmod /system/vendor/lib/modules/3.8.13+/updates/drivers/bluetooth/btusb.ko
     # Wifi
-    insmod /system/vendor/lib/modules/3.8.13/kernel/net/wireless/cfg80211.ko
-    insmod /system/vendor/lib/modules/3.8.13/kernel/net/mac80211/mac80211.ko
+    insmod /system/vendor/lib/modules/3.8.13+/kernel/net/wireless/cfg80211.ko
+    insmod /system/vendor/lib/modules/3.8.13+/kernel/net/mac80211/mac80211.ko
+    insmod /system/vendor/lib/modules/3.8.13+/kernel/drivers/net/wireless/rtl8192cu/8192cu.ko
+#different kernels
+    # Bluetooth
+    #insmod /system/vendor/lib/modules/3.14.1+/updates/compat/compat.ko
+    #insmod /system/vendor/lib/modules/3.14.1+/updates/net/bluetooth/bluetooth.ko
+    #insmod /system/vendor/lib/modules/3.14.1+/updates/net/bluetooth/rfcomm/rfcomm.ko
+    #insmod /system/vendor/lib/modules/3.14.1+/updates/net/bluetooth/bnep/bnep.ko
+    #insmod /system/vendor/lib/modules/3.14.1+/updates/drivers/bluetooth/btusb.ko
+    # Wifi
+    #insmod /system/vendor/lib/modules/3.14.1+/kernel/net/wireless/cfg80211.ko
+    #insmod /system/vendor/lib/modules/3.14.1+/kernel/net/mac80211/mac80211.ko
 
-    insmod /system/vendor/lib/modules/3.8.13/kernel/drivers/net/wireless/rtl8192cu/8192cu.ko
-    insmod /system/vendor/lib/modules/3.8.13/kernel/drivers/net/wireless/rtl818x/rtl8187/rtl8187.ko
+    #Pluggable WIFI
+    #insmod /system/vendor/lib/modules/3.14.1+/kernel/drivers/net/wireless/rtlwifi/rtlwifi.ko
+    #insmod /system/vendor/lib/modules/3.14.1+/kernel/drivers/net/wireless/rtlwifi/rtl_usb.ko
+    #insmod /system/vendor/lib/modules/3.14.1+/kernel/drivers/net/wireless/rtlwifi/rtl8192cu/rtl8192cu.ko
+
 
     #Cankit wifi dongle
-    insmod /system/vendor/lib/modules/3.8.13/kernel/drivers/net/wireless/rt2x00/rt2x00lib.ko
-    insmod /system/vendor/lib/modules/3.8.13/kernel/drivers/net/wireless/rt2x00/rt2x00usb.ko
-    insmod /system/vendor/lib/modules/3.8.13/kernel/drivers/net/wireless/rt2x00/rt2800lib.ko
-    insmod /system/vendor/lib/modules/3.8.13/kernel/drivers/net/wireless/rt2x00/rt2800usb.ko
+    #insmod /system/vendor/lib/modules/3.14.1+/kernel/drivers/net/wireless/rt2x00/rt2x00lib.ko
+    #insmod /system/vendor/lib/modules/3.14.1+/kernel/drivers/net/wireless/rt2x00/rt2x00usb.ko
+    #insmod /system/vendor/lib/modules/3.14.1+/kernel/drivers/net/wireless/rt2x00/rt2800lib.ko
+    #insmod /system/vendor/lib/modules/3.14.1+/kernel/drivers/net/wireless/rt2x00/rt2800usb.ko
 
     #belkin
-    insmod /system/vendor/lib/modules/3.8.13/kernel/drivers/staging/rtl8712/r8712u.ko
+    #insmod /system/vendor/lib/modules/3.14.1+/kernel/drivers/net/wireless/rtl818x/rtl8187/rtl8187.ko
+    #insmod /system/vendor/lib/modules/3.14.1+/kernel/drivers/staging/rtl8712/r8712u.ko
 
 on boot
 # Emulate battery property

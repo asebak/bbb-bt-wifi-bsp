@@ -45,6 +45,7 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_NO_KERNEL := true
 
 BOARD_HAVE_BLUETOOTH := true
+#BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/ti/beagleboneblack/hardware/bluetooth
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RECOVERY := true
 

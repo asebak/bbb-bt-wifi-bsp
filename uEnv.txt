@@ -1,0 +1,14 @@
+kernel_file=zImage
+fdtfile=am335x-boneblack.dtb
+video_res=video=480x272-16@60
+loadzimage=load mmc ${mmcdev}:${mmcpart} ${loadaddr} ${kernel_file}
+loadfdt=load mmc ${mmcdev}:${mmcpart} ${fdtaddr} /dtbs/${fdtfile}
+
+console=ttyO0,115200n8
+mmcroot=/dev/mmcblk0p2 rw
+mmcrootfstype=ext4 rootwait fixrtc
+
+mmcargs=setenv bootargs consoleblank=0 mem=512M acpi=noirq vt.global_cursor_default=0 mpurate=1000 ${video_res} qemu=1 console=${console} root=${mmcroot} rootfstype=${mmcrootfstype} init=/init ip=off g_ffs.idVendor=0x18d1 g_ffs.idProduct=0x4e23 g_ffs.iSerialNumber=BBBANDROID
+
+
+uenvcmd=run loadzimage; run loadfdt; run mmcargs; bootz ${loadaddr} - ${fdtaddr}
